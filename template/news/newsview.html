@@ -1,0 +1,60 @@
+({include file="common/header.html"})
+<!-- common header-bottom-->
+
+<!-- common content-banner-->
+  <div class="common" id="nei-banner">({$NewsPosterSeat})</div>
+<!-- common content-banner -->
+<!-- About_box -->
+<div id="about_box">
+<table width="1000" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="left" valign="top" id="about_box_left">
+      <dl class="about_dl">
+         <dt>N</dt>
+         <dd class="about_dl_dd1">新闻中心</dd>
+         <dd class="about_dl_dd2">NEWS CENTER</dd>
+      </dl>
+        <ul class="about_ul">
+            ({foreach $GetNewsTypeList as $value})
+            <li><a href="./?act=news&m=index&typeid=({$value.Type_ID})">({$value['Type_Name']})</a></li>
+            ({/foreach})
+        </ul>
+ ({include file="common/left.html"})
+
+    </td>
+    <td align="left" valign="top" id="about_box_right">
+       <dl id="box_right_tit">
+          <dt>新闻中心</dt>
+          <dd>NEWS CENTER</dd>
+       </dl>
+       <div id="about_name"><a href="./" >首页</a>  -> <a href="./?act=news"> 新闻中心</a>({$NewsInfo.News_TypeName|default:''})</div>
+
+       <div id="NEWS_right_box">
+           <div id="news_tit">({$NewsInfo.News_Title})</div>
+           <div id="news_tit_info">时间：({$NewsInfo.News_Time|date_format:'Y-m-d H:m:i'})&nbsp;&nbsp;&nbsp;&nbsp;作者：<font color="#22943a">({$NewsInfo.News_Author})</font>&nbsp;&nbsp;&nbsp;&nbsp;来源：({$NewsInfo.News_Source})&nbsp;&nbsp;&nbsp;&nbsp;浏览：({$NewsInfo.News_Hits})次</div>
+        ({$NewsInfo.News_Content})
+        <div id="news_next">
+              <div>上一篇：
+                  ({if empty($UpOneList)})
+                  暂无记录
+                  ({else})
+                  <a href="./?act=news&m=view&id=({$UpOneList.News_ID})" >({$UpOneList.News_Title})</a>
+                  ({/if})
+              </div>
+
+              <div>下一篇：
+                  ({if empty($NextOneList)})
+                  暂无记录
+                  ({else})
+                  <a href="./?act=news&m=view&id=({$NextOneList.News_ID})" title="" onFocus="this.blur()">({$NextOneList.News_Title})</a></div>
+                  ({/if})
+
+           </div>
+       </div>
+    </td>
+  </tr>
+</table>
+</div>
+</div>
+<!-- header begin -->
+({include file="common/footer.html"})

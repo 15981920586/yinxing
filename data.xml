@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+        <Banner
+            bannerWidth="693"
+            bannerHeight="354"
+            textSize="14"
+            textColor=""
+            textAreaWidth=""
+            textLineSpacing="0"
+            textLetterSpacing="-0.5"
+            textMarginLeft="12"
+            textMarginBottom="3"
+            transitionType="1"
+            transitionDelayTimeFixed="8"
+            transitionDelayTimePerWord=".5"
+            transitionSpeed="8"
+            transitionBlur="yes"
+            transitionRandomizeOrder="no"
+            showTimerClock="yes"
+            showBackButton="yes"
+            showNumberButtons="yes"
+            showNumberButtonsAlways="Yes"
+            showNumberButtonsHorizontal="yes"
+            showNumberButtonsAscending="yes"
+            autoPlay="yes">
+            <item image="uploadfile/20160412/20160412204630_190.jpg" link="http://www.baidu.com" textBlend="no"><![CDATA[]]></item><item image="uploadfile/20160412/20160412171804_696.jpg" link="http://www.baidu.com" textBlend="no"><![CDATA[]]></item><item image="uploadfile/20160412/20160412171747_406.jpg" link="http://www.baidu.com" textBlend="no"><![CDATA[]]></item><item image="uploadfile/20160412/20160412171722_652.jpg" link="h" textBlend="no"><![CDATA[]]></item><item image="uploadfile/20160412/20160412151541_698.jpg" link="http://www.baidu.com" textBlend="no"><![CDATA[]]></item>
+        </Banner>

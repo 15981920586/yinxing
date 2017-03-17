@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<link href="./template/css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./template/js/jquery.js"></script>
+<script type="text/javascript" src="./template/js/admin.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function(){
+  $(".click").click(function(){
+  $(".tip").fadeIn(200);
+  });
+  
+  $(".tiptop a").click(function(){
+  $(".tip").fadeOut(200);
+});
+
+  $(".sure").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+  $(".cancel").click(function(){
+  $(".tip").fadeOut(100);
+});
+
+});
+</script>
+</head>
+<body>
+        <div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+        <li><a href="./?Action=Project&Method=Index">内容列表</a></li>
+        </ul>
+        </div>
+    <div class="rightinfo">
+    <div class="tools">
+    	<ul class="toolbar">
+            <li> <a href="./?Action=Project&Method=Add"><span><img src="./template/images/t01.png" /></span>添加  </a></li>
+            <li onclick="SortAffirm('./?Action=Project&Method=SortAffirm');"> <span><img src="./template/images/sort.png" /></span>更新排序</li>
+        </ul>
+        <ul class="toolbar1">
+
+
+            <ul class="seachform">
+                <form method="get" >
+                    <input type="hidden" name="Action" value="Project"/>
+                    <li><label> </label><input name="Key" type="text" class="scinput" /></li>
+                    <li><label>&nbsp;</label><input type="submit" class="scbtn" value="查询"/></li>
+                </form>
+            </ul>
+
+            <li style="cursor: pointer;" onclick="AllDelCheck();"><span><img src="./template/images/t03.png" /></span>批量删除</li>
+        </ul>
+    </div>
+<table class="tablelist">
+    <form id="MyForm" action="./?Action=Project&Method=Del" method="post">
+        <thead>
+        <tr>
+            <th width="4%"><input type="checkbox" onclick="AllCheckBoxCheck(this)"/></th>
+            <th width="8%">编号ID</th>
+            <th width="10%">序列</th>
+
+            <th>标题</th>
+
+            <th width="20%">英文标题</th>
+
+            <th width="10%">发布时间</th>
+            <th width="10%">是否审核</th>
+            <th width="10%">操作</th>
+         </tr>
+            </thead>
+            <tbody>
+<?php
+   if(is_array($List))
+   {
+      foreach($List as $key =>$value )
+       {
+?>
+
+    <tr>
+        <input type="hidden" value="<?php echo $value['Project_ID'];?>" name="CommonID[]"/>
+
+        <td><input name="Del_ID[]" type="checkbox" value="<?php echo $value['Project_ID'];?>" /></td>
+        <td><?php echo $value['Project_ID'];?></td>
+
+        <td><input value="<?php  echo  $value['Project_Sort'];?>" name="Project_Sort[]"/></td>
+
+        <td><?php echo  $value['Project_Title']; ?>
+            <?php
+            if(!empty($value['Project_PicPathSmall']))
+            {
+            ?>
+            <a href="../<?php echo $value['Project_PicPathSmall'];?>" target="_blank">
+                <img src="../<?php echo $value['Project_PicPathSmall'];?>" height="20" />
+            </a>
+            <?php }?>
+        </td>
+        <td><?php echo $value['Project_EnglishTitle'];?></td>
+        <td><?php echo date('Y-m-d H:i:s',$value['Project_Time']);?></td>
+        <td><?php echo  $value['Project_State']; ?></td>
+
+
+        <td><a href="./?Action=Project&Method=Edit&ID=<?php  echo  $value['Project_ID'];?>" class="tablelink">修改</a>
+           <!-- <a href="./?Action=Project&Method=Del&ID=<?php  echo  $value['Project_ID'];?>" class="tablelink"> 删除</a></td>-->
+        <a href="javascript:DelList('./?Action=Project&Method=Del&ID=<?php echo $value['Project_ID'];?>')" class="tablelink"> 删除</a>
+
+    </tr>
+<?php
+      }
+  }
+?>
+            </tbody>
+    </form>
+    </table>
+    
+   
+    <div class="pagin">
+    	该数据库<div class="message">共<i class="blue"><?php echo $ListCount;?></i>条记录，当前显示第&nbsp;<i class="blue"><?php echo $p?>&nbsp;</i>页</div>
+        <ul class="paginList">
+            <?php echo $Show;?>
+        </ul>
+    </div>
+
+    <div class="tip">
+    	<div class="tiptop"><span>提示信息</span><a></a></div>
+        <div class="tipinfo">
+        <span><img src="images/ticon.png" /></span>
+        <div class="tipright">
+        <p>是否确认对信息的修改 ？</p>
+        <cite>如果是请点击确定按钮 ，否则请点取消。</cite>
+        </div>
+        </div>
+        <div class="tipbtn">
+        <input name="" type="button"  class="sure" value="确定" />&nbsp;
+        <input name="" type="button"  class="cancel" value="取消" />
+        </div>
+        </div>
+
+    </div>
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+</body>
+</html>

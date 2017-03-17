@@ -1,0 +1,16 @@
+<!-- bottom begin -->
+<div class="bottom_top all_width">
+   <div id="bottom">({$WebBaseInfo.WebFooter|stripcslashes})</div> <!--stripcslashes 清除WebFooter下的反斜杠-->
+   <dl id="link">
+      <dt>合作伙伴：</dt>
+      <dd>
+         ({foreach $GetFooterPartnerList as $key => $value})
+      <a target="_blank" href="({$value.Poster_Url})" onFocus="this.blur()"><img src="({$value.Poster_PicPathBig})" height="26" /></a>
+         ({/foreach})
+      </dd>
+   </dl>
+</div>
+<!-- bottom end -->
+</div>
+</body>
+</html>

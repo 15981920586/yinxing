@@ -1,0 +1,35 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>基本信息配置</title>
+<link href="./template/css/style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+    <li>基本信息配置</li>
+    </ul>
+</div>
+    
+<div class="formbody">
+    <div class="formtitle"><span>基本信息</span></div>
+    <ul class="forminfo">
+    <form action="./?Action=System&Method=BaseSave" method="post">
+    	<li><label>站点名称</label><input name="WebName" value="<?php echo stripcslashes($WebBaseInfo['WebName']);?>" type="text" class="dfinput" /><i>标题不能超过50个字符</i></li>
+        <li><label>站点域名</label><input name="WebDomain" value="<?php echo stripcslashes($WebBaseInfo['WebDomain']);?>" type="text" class="dfinput" /><i>请以http://开头 结尾以 / 结束</i></li>
+        <li><label>站点标题</label><input name="WebTitle" value="<?php echo stripcslashes($WebBaseInfo['WebTitle']);?>" type="text" class="dfinput" /><i>标题不能超过100个字符</i></li>
+        <li><label>站点关键字</label><input name="WebKeyword" value="<?php echo stripcslashes($WebBaseInfo['WebKeyword']);?>" type="text" class="dfinput" /><i>多个关键字用,隔开</i></li>
+        <li><label>站点描述</label><textarea name="WebDescribe" class="textinput" style="height:90px"><?php echo stripcslashes($WebBaseInfo['WebDescribe']);?></textarea></li>
+        <li><label>电话</label><input name="WebMobile" value="<?php echo stripcslashes($WebBaseInfo['WebMobile']);?>" type="text" class="dfinput" /><i>标题不能超过50个字符</i></li>
+        <li><label>传真</label><input name="WebFax" value="<?php echo stripcslashes($WebBaseInfo['WebFax']);?>" type="text" class="dfinput" /><i>标题不能超过50个字符</i></li>
+        <li><label>邮箱</label><input name="WebEmail" value="<?php echo stripcslashes($WebBaseInfo['WebEmail']);?>" type="text" class="dfinput" /><i>标题不能超过50个字符</i></li>
+        <li><label>版权信息</label><textarea name="WebFooter" class="textinput" style="height:90px"><?php echo stripcslashes($WebBaseInfo['WebFooter']);?></textarea></li>
+        <li><label>&nbsp;</label><input type="submit" class="btn" value="确认保存"/></li>
+    </form>
+    </ul>
+</div>
+</body>
+</html>

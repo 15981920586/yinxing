@@ -1,0 +1,66 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>信息添加</title>
+<link href="./template/css/style.css" rel="stylesheet" type="text/css" />
+<link href="./template/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./template/js/jquery.js"></script>
+<script type="text/javascript" src="./template/js/admin.js"></script>
+</head>
+
+<body>
+	<div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+        <li><a href="./?Action=Admin">管理员列表</a></li>
+        <li>管理员添加</li>
+        </ul>
+    </div>
+    
+    <div class="formbody">
+    <div id="usual1" class="usual"> 
+    
+    <div class="itab">
+        <ul>
+            <li><a href="#tab1" class="selected">添加管理员</a></li>
+        </ul>
+    </div> 
+
+  	<div id="tab1" class="tabson">
+        <form onsubmit="return EditAdminCheck();" action="./?Action=Admin&Method=EditSave" method="post">
+        <ul class="forminfo">
+        <li>
+            <label>管理员名称<b>*</b></label>
+            <input disabled="disabled" type="text" value="<?php echo $Info['Admin_Name'];?>" class="dfinput" style="width:518px;"/>
+        </li>
+            <li>
+                <label>密码<b>*</b></label>
+                <input id="Admin_Pwd" name="Admin_Pwd" type="password" class="dfinput" style="width:518px;" />
+            </li>
+
+            <li>
+                <label>确认密码<b>*</b></label>
+                <input id="Admin_AffirmPwd" name="Admin_AffirmPwd" type="password" class="dfinput" style="width:518px;" />
+            </li>
+
+
+
+        <li>
+            <label>状态<b>*</b></label>
+            <label><input type="radio" name="Admin_State" value="1" <?php if($Info['Admin_State']==1){echo 'checked';}?>/> 已审核</label>
+            <label><input type="radio" name="Admin_State" value="0" <?php if($Info['Admin_State']==0){echo 'checked';}?>/> 未审核</label>
+        </li>
+        <li>
+            <label>&nbsp;</label>
+            <input type="hidden" value="<?php echo $Info['Admin_ID'];?>" name="Admin_ID"/>
+            <input type="submit" class="btn" value="立即修改"/>
+        </li>
+        </ul>
+        </form>
+        </div>
+	</div> 
+
+    </div>
+</body>
+</html>

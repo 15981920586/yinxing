@@ -1,0 +1,126 @@
+({include file="common/header.html"})
+<!-- common header-bottom-->
+<!-- common content-banner-->
+<div class="common" id="content-banner">
+    <div class="banner left"><script language="javascript" type="text/javascript">
+        writeflashhtml("_swf=./template/swf/xixi.swf", "_width=693", "_height=354" ,"_wmode=transparent");
+    </script></div>
+    <script>
+        //移过时div的背景色
+        function rowOver(target)
+        {
+            target.style.background='#dbdbdb';
+        }
+        //移出时div的背景色
+        function rowOut(target)
+        {
+            target.style.background='#ededed';
+        }
+        //恢复div的的onmouseover事件配套调用函数
+        function resumeRowOver()
+        {
+            rowOver(this);
+        }
+    </script>
+    <div class="left bannera">
+        ({foreach $GetYinXingProjectList as $key =>$value})
+        <dl class="bannera-right" onmouseover="rowOver(this)" onmouseout="rowOut(this)">
+            <dt><a href="./?act=project&m=index&id=({$value.Project_ID})" title="({$value.Project_Title})" onFocus="this.blur()">({$value.Project_Title})</a><h1>({$value.Project_EnglishTitle})</h1></dt>
+            <dd><a href="./?act=project&m=index&id=({$value.Project_ID})" title="({$value.Project_Title})" onFocus="this.blur()"><img src="({$value.Project_PicPathBig})" width="116" height="54" alt="({$value.Project_Title})"/></a></dd>
+        </dl>
+        ({/foreach})
+        <div class="left">({$HomePosterZXNS})</div>
+    </div>
+</div>
+<!-- common content-banner -->
+<!-- common content-about-->
+  <div class="common" id="content-about">
+     <div class="content-about-left">
+        <dl>
+           <dt><img src="./template/images/index_r6_c4.gif" width="240" height="28" /></dt>
+           <dd>Because&nbsp;We&nbsp;are&nbsp;professional</dd>
+        </dl>
+        <h1>为什么要选择银杏嘉年华作为您的服务首选！</h1>
+        <div>
+           <a href="./?act=about" title="公司简介" onFocus="this.blur()">公司简介</a>
+           <a href="./?act=honor" title="企业荣誉" onFocus="this.blur()">企业荣誉</a>
+           <a href="./?act=about&m=index&id=111" title="银杏文化" onFocus="this.blur()">银杏文化</a>
+        </div>
+    </div>
+    <div class="content-about-right">({$GetAboutContent|truncate:150:'...'})</div>
+  </div>
+<!-- common content-about -->
+<!-- common content-pro-->
+  <div class="common" id="content-pro">
+   <div class="index-left">
+      <dl class="box-dlb">
+        <dt><a href="#" title="" onFocus="this.blur()">公司产品</a></dt>
+        <dd>Products</dd>
+        <dd><a href="./?act=product" title="" onFocus="this.blur()"><img src="./template/images/more.jpg" width="31" height="5" /></a></dd>
+      </dl>
+      <span>
+
+        ({foreach $ProductList as $key => $value})
+         <a href=./?act=product&m=view&id=({$value.Product_ID})>
+             <div> <img src="({$value.Product_PicPathSmall})"  width="192" height="122" alt=""/></div>
+             <h1>({$value.Product_Title})</h1>
+             <h2>({$value.Product_Time|date_format:"Y-m-d H:i"})</h2>
+         </a>
+        ({/foreach})
+      </span>
+   </div>
+   <div class="index-right">
+      <dl class="box-dlc">
+        <dt>快速通道</dt>
+        <dd>Quick</dd>
+      </dl>
+      <div class="quick-box">洛阳市中国银杏嘉年华是洛阳市农业产业化龙头企业，成立于1999年，园区占地1500多亩，以农林业、生态旅游业、银杏产业开发为主，以"生态、特色、...</div>
+      <a href="./?act=honor" title="" onFocus="this.blur()"><img src="./template/images/index_r8_c28.jpg" alt="企业荣誉"/><p>企业荣誉</p></a>
+      <a href="./?act=about&m=index&id=113" title="" onFocus="this.blur()"><img src="./template/images/index_r9_c23.jpg" alt="人才招聘"/><p>人才招聘</p></a>
+      <a href="./?act=news&m=index&typeid=3" title="" onFocus="this.blur()"><img src="./template/images/index_r10_c20.jpg" alt="最新公告"/><p>最新公告</p></a>
+      <a href="./?act=activity" title="" onFocus="this.blur()"><img src="./template/images/index_r11_c26.jpg" alt="活动中心"/><p>活动中心</p></a>
+   </div>
+  </div>
+<!-- common content-pro -->
+<!-- common content-pro-->
+  <div class="common" id="news-pro">
+   <div class="index-news">
+      <dl class="news-dl">
+        <dt>公司新闻</dt>
+        <dd><a href="./?act=news&m=index&typeid=1" title="" onFocus="this.blur()"><img src="./template/images/more.jpg" width="31" height="5" /></a></dd>
+      </dl>
+
+      <span>
+          ({foreach $NewsList as $key => $value})
+            <a href="./?act=news&m=view&id=({$value.News_ID})" >({$value.News_Title})</a>
+          ({/foreach})
+      </span>
+
+   </div>
+   <div class="index-news">
+      <dl class="news-dl">
+        <dt>活动中心</dt>
+        <dd><a href="./?act=activity" title="" onFocus="this.blur()"><img src="./template/images/more.jpg" width="31" height="5" /></a></dd>
+      </dl>
+      <span>
+          ({foreach $ActivityList as $key => $value})
+         <a href="./?act=activity&m=view&id=({$value.Activity_ID})" >({$value.Activity_Title})</a>
+          ({/foreach})
+      </span>
+   </div>
+   <div class="index-news">
+      <dl class="news-dl">
+        <dt>项目介绍</dt>
+        <dd><a href="./?act=item" title="" onFocus="this.blur()"><img src="./template/images/more.jpg" width="31" height="5" /></a></dd>
+      </dl>
+      <span>
+          ({foreach $ItemList as $key => $value })
+         <a href="./?act=item&m=view&id=({$value.Item_ID})">({$value.Item_Title})</a>
+          ({/foreach})
+      </span>
+   </div>
+  </div>
+<!-- common content-pro -->
+</div>
+<!-- header begin -->
+({include file="./common/footer.html"})

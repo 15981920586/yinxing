@@ -1,0 +1,92 @@
+({include file="common/header.html"})
+<!-- common content-banner-->
+<script type="text/javascript">
+function MyFormCheck()
+{
+    var Message_Name=document.getElementById('Message_Name').value;
+    var Message_Mobile=document.getElementById('Message_Mobile').value;
+    var Message_QQ=document.getElementById('Message_QQ').value;
+    var Message_Title=document.getElementById('Message_Title').value;
+    if(Message_Name=='')
+    {
+        alert('您的姓名不能为空');
+        return false;
+    }
+    if(Message_Mobile=='')
+    {
+        alert('您的电话不能为空');
+        return false;
+    }
+    if(Message_QQ=='')
+    {
+        alert('您的qq不能为空');
+        return false;
+    }
+    if(Message_Title=='')
+    {
+        alert('您的留言标题不能为空');
+        return false;
+    }
+
+}
+
+</script>
+  <div class="common" id="nei-banner">({$MessageTopPoster})</div>
+<!-- common content-banner -->
+<!-- About_box -->
+<div id="about_box">
+<table width="1000" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="left" valign="top" id="about_box_left">
+      <dl class="about_dl">
+         <dt>M</dt>
+         <dd class="about_dl_dd1">在线留言</dd>
+         <dd class="about_dl_dd2">MESSAGE</dd>
+      </dl>
+      <ul class="about_ul">
+         <li><a href="./?act=message" >在线留言</a></li>
+          <li><a href="./?act=about" >联系我们</a></li>
+      </ul>
+({include file="common/left.html"})
+    </td>
+    <td align="left" valign="top" id="about_box_right">
+       <dl id="box_right_tit">
+          <dt>在线留言</dt>
+          <dd>MESSAGE</dd>
+       </dl>
+       <div id="about_name"><a href="./" title="" onFocus="this.blur()">首页</a>  ->  在线留言</div>
+       <div id="Message_right_box">
+          <form onsubmit="return MyFormCheck()" action="./?act=message&m=save" method="post">
+          <div class="messgea_div1">(*)您的姓名：</div>
+          <div class="messgea_div2"><input name="Message_Name"  id="Message_Name" type="text" /></div>
+          <div class="messgea_div1">您的E-mail：</div>
+          <div class="messgea_div2"><input name="Message_Email"   type="text" /></div>
+          <div class="messgea_div1">(*)您的电话：</div>
+          <div class="messgea_div2"><input name="Message_Mobile"  id="Message_Mobile"type="text" /></div>
+          <div class="messgea_div1">(*)您的QQ：</div>
+          <div class="messgea_div2"><input name="Message_QQ"  id="Message_QQ" type="text" /></div>
+          <div class="messgea_div1">您的地址：</div>
+          <div class="messgea_div2"><input name="Message_Address" type="text" /></div>
+          <div class="messgea_div1">您的MSN：</div>
+          <div class="messgea_div2"><input name="Message_MSN" type="text" /></div>
+          <div class="messgea_div1">您的邮编：</div>
+          <div class="messgea_div2"><input name="Message_Zip" type="text" /></div>
+          <div class="messgea_div1">您的主页：</div>
+          <div class="messgea_div2"><input name="Message_Home" type="text" /></div>
+          <div class="messgea_div1">(*)留言标题：</div>
+          <div class="messgea_div5"><input name="Message_Title" id="Message_Title" type="text" /></div>
+          <div class="messgea_div1">留言内容：</div>
+          <div class="messgea_div3"><textarea name="Message_Content" ></textarea>
+          </div>
+          <div class="messgea_div4"><input type="submit"value="同意并提交" /><input type="reset" value="重置" />
+          </div>
+          <div class="messgea_div6"><strong>注：</strong>请认真填写正确的联系方式，便于我们和您取得联系！</div>
+           </form>
+       </div>
+    </td>
+  </tr>
+</table>
+</div>
+</div>
+<!-- header begin -->
+({include file="common/footer.html"})

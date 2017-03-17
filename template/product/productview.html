@@ -1,0 +1,49 @@
+({include file="common/header.html"})
+<!-- common content-banner-->
+<div class="common" id="nei-banner">({$ProductPosterSeat})</div>
+<!-- common content-banner -->
+<!-- About_box -->
+<div id="about_box">
+<table width="1000" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="left" valign="top" id="about_box_left">
+      <dl class="about_dl">
+         <dt>P</dt>
+         <dd class="about_dl_dd1">公司产品</dd>
+         <dd class="about_dl_dd2">PRODUCT</dd>
+      </dl>
+      <ul class="about_ul">
+          ({foreach $GetProductTypeList as $key => $value})
+         <li><a href="./?act=product&m=index&typeid=({$value.Type_ID})">({$value.Type_Name})</a></li>
+         ({/foreach})
+      </ul>
+({include file="common/left.html"})
+    </td>
+    <td align="left" valign="top" id="about_box_right">
+       <dl id="box_right_tit">
+          <dt>公司产品</dt>
+          <dd>PRODUCT</dd>
+       </dl>
+       <div id="about_name"><a href="./">首页</a>  ->  <a href="./?act=product">产品中心</a>({$ProductInfo.Product_NavTypeName})</div>
+       <div id="product_right_box">
+          <dl id="box_product_info">
+
+              <dt><a href="./?act=product&m=view&id=({$ProductInfo.Product_ID})"><img src="({$ProductInfo.Product_PicPathBig})" width="464" height="280"/></a></dt>
+             <dd><span id="product_tit">({$ProductInfo.Product_Title})</span></dd>
+             <dd>时间:({$ProductInfo.Product_Time|date_format:'Y-m-d H:m:i'})</dd>
+             <dd>分类:({$ProductInfo.Product_TypeName})</dd>
+             <dd>作者:({$ProductInfo.Product_Author})</dd>
+             <dd>编号: ({$ProductInfo.Product_Number})次</dd>
+          </dl>
+          <div id="product_info_div">
+          <h1>产品介绍详情介绍：</h1>
+          ({$ProductInfo.Product_Content})
+          </div>
+       </div>
+    </td>
+  </tr>
+</table>
+</div>
+</div>
+<!-- header begin -->
+({include file="common/footer.html"})

@@ -1,0 +1,83 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>信息添加</title>
+    <link href="./template/css/style.css" rel="stylesheet" type="text/css" />
+    <link href="./template/css/select.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="./template/js/jquery.js"></script>
+    <script type="text/javascript" src="./template/js/jquery.idTabs.min.js"></script>
+    <script type="text/javascript" src="./template/kindeditor/kindeditor-all-min.js"></script>
+    <link rel="stylesheet" href="./template/kindeditor/themes/default/default.css" />
+    <script charset="utf-8" src="./template/kindeditor/kindeditor-min.js"></script>
+    <script charset="utf-8" src="./template/kindeditor/lang/zh-CN.js"></script>
+    <script type="text/javascript">
+        var editor;
+        KindEditor.ready(function(K) {
+            editor = K.create('#EditContent', {
+                allowFileManager: true
+            });
+        });
+    </script>
+</head>
+
+<body>
+<div class="place">
+    <span>位置：</span>
+    <ul class="placeul">
+        <li><a href="./?Action=About">内容列表</a></li>
+        <li>内容修改</li>
+    </ul>
+</div>
+
+<div class="formbody">
+    <div id="usual1" class="usual">
+
+        <div class="itab">
+            <ul>
+                <li><a href="#tab1" class="selected">修改内容</a></li>
+            </ul>
+        </div>
+
+        <div id="tab1" class="tabson">
+            <form action="./?Action=About&Method=EditSave" method="post">
+                <ul class="forminfo">
+                    <li>
+                        <label>标题<b>*</b></label>
+                        <input name="About_Title" type="text" value="<?php echo $Info['About_Title'];?>" class="dfinput" style="width:518px;"/>
+                    </li>
+
+                    <li>
+                        <label>序列<b>*</b></label>
+                        <input name="About_Sort" type="text" class="dfinput" value="<?php echo $Info['About_Sort'];?>" style="width:518px;" onkeyup="this.value=this.value.replace(/\D/g,'')"/>
+                    </li>
+
+                    <li>
+                        <label>发布内容<b>*</b></label>
+                        <textarea id="EditContent" name="About_Content" style="width:700px;height:350px;visibility:hidden;"><?php echo $Info['About_Content'];?></textarea>
+                    </li>
+
+                    <li>
+                        <label>状态<b>*</b></label>
+                        <label><input type="radio" name="About_State" value="1" <?php if($Info['About_State']==1){echo 'checked';}?> /> 已审核</label>
+                        <label><input type="radio" name="About_State" value="0" <?php if($Info['About_State']==0){echo 'checked';}?> />  未审核</label>
+                    </li>
+                    <li>
+                        <label>&nbsp;</label>
+                        <input type="hidden" value="<?php echo $Info['About_ID'];?>" name="About_ID"/>
+                        <input type="submit" class="btn" value="立即修改"/>
+                    </li>
+                </ul>
+            </form>
+        </div>
+    </div>
+
+    <script type="text/javascript">
+        $("#usual1 ul").idTabs();
+    </script>
+    <script type="text/javascript">
+        $('.tablelist tbody tr:odd').addClass('odd');
+    </script>
+</div>
+</body>
+</html>

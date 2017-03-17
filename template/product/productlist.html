@@ -1,0 +1,47 @@
+({include file="common/header.html"})
+<!-- common content-banner-->
+  <div class="common" id="nei-banner">({$ProductPosterSeat})</div>
+<!-- common content-banner -->
+<!-- About_box -->
+<div id="about_box">
+<table width="1000" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="left" valign="top" id="about_box_left">
+      <dl class="about_dl">
+         <dt>P</dt>
+         <dd class="about_dl_dd1">关于我们</dd>
+         <dd class="about_dl_dd2">ABOUT</dd>
+      </dl>
+        <ul class="about_ul">
+            ({foreach $GetProductTypeList as $key => $value})
+            <li><a href="./?act=product&m=index&typeid=({$value.Type_ID})">({$value.Type_Name})</a></li>
+            ({/foreach})
+        </ul>
+ ({include file="common/left.html"})
+    </td>
+    <td align="left" valign="top" id="about_box_right">
+       <dl id="box_right_tit">
+          <dt></dt>荣誉证书</dt>
+          <dd>HONOR</dd>
+       </dl>
+       <div id="about_name"><a href="./">首页</a>  ->  <a href="./?act=product">产品中心</a>({$NavSeat})</div>
+       <div id="NEWS_right_box">
+
+       ({if !empty($ProductList)})
+            ({foreach $ProductList as $key => $value})
+            <div class="box_one">
+                <a href="./?act=product&m=view&id=({$value.Product_ID})"><img src="({$value.Product_PicPathSmall})" height="140"/></a>
+                <p><a href="./?act=product&m=view&id=({({$value.Product_ID})})"  target="_blank">({$value.Product_Title})</a></p>
+            </div>
+            ({/foreach})
+       ({/if})
+
+       <div id="fenye">共有:<font color="#22943a">({$CountList})</font>记录  当前:第<font color="#22943a">({$p})</font>/<font color="#22943a"><strong>({$TotalPageCount})</strong></font>页   ({$ShowPage})  </div>
+       </div>
+    </td>
+  </tr>
+</table>
+</div>
+</div>
+<!-- header begin -->
+({include file="common/footer.html"})

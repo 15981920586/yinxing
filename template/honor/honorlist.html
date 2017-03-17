@@ -1,0 +1,42 @@
+({include file="common/header.html"})
+<!-- common content-banner-->
+  <div class="common" id="nei-banner">({$HonorPosterSeat})</div>
+<!-- common content-banner -->
+<!-- About_box -->
+<div id="about_box">
+<table width="1000" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="left" valign="top" id="about_box_left">
+      <dl class="about_dl">
+         <dt>P</dt>
+         <dd class="about_dl_dd1">关于我们</dd>
+         <dd class="about_dl_dd2">ABOUT</dd>
+      </dl>
+      <ul class="about_ul">
+         <li><a href="./?act=about" title="" onFocus="this.blur()" id="on_menu">企业简介</a></li>
+         <li><a href="./?act=honor" title="" onFocus="this.blur()">企业荣誉</a></li>
+         <li><a href="./?act=about&m=index&id=111" title="" onFocus="this.blur()">银杏文化</a></li>
+      </ul>
+ ({include file="common/left.html"})
+    </td>
+    <td align="left" valign="top" id="about_box_right">
+       <dl id="box_right_tit">
+          <dt></dt>荣誉证书</dt>
+          <dd>HONOR</dd>
+       </dl>
+       <div id="about_name"><a href="./?act=about" title="" onFocus="this.blur()">首页</a>  ->  企业荣誉</div>
+
+       <div id="NEWS_right_box">
+        ({foreach $HonorList as $key => $value})
+          <div class="box_one"><a href="./?act=honor&m=view&id=({({$value.Honor_ID})})"><img src="({$value.Honor_PicPathSmall})" height="140"/></a><p><a href="./?act=honor&m=view&id=({({$value.Honor_ID})})"  target="_blank">({$value.Honor_Title})</a></p></div>
+        ({/foreach})
+
+          <div id="fenye">共有:<font color="#22943a">({$CountList})</font>记录  当前:第<font color="#22943a">({$p})</font>/<font color="#22943a"><strong>({$TotalPageCount})</strong></font>页   ({$ShowPage})  </div>
+       </div>
+    </td>
+  </tr>
+</table>
+</div>
+</div>
+<!-- header begin -->
+({include file="common/footer.html"})

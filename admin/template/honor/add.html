@@ -1,0 +1,96 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>信息添加</title>
+<link href="./template/css/style.css" rel="stylesheet" type="text/css" />
+<link href="./template/css/select.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="./template/js/jquery.js"></script>
+<script type="text/javascript" src="./template/js/select-ui.min.js"></script>
+<script type="text/javascript" src="./template/kindeditor/kindeditor-all-min.js"></script>
+<link rel="stylesheet" href="./template/kindeditor/themes/default/default.css" />
+<script charset="utf-8" src="./template/kindeditor/kindeditor-min.js"></script>
+<script charset="utf-8" src="./template/kindeditor/lang/zh-CN.js"></script>
+<script type="text/javascript">
+        var editor;
+        KindEditor.ready(function(K) {
+            editor = K.create('#EditContent', {
+                allowFileManager: true
+            });
+        });
+    </script>
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+            $(".select1").uedSelect({
+                width : 345
+            });
+        });
+    </script>
+</head>
+
+<body>
+
+	<div class="place">
+        <span>位置：</span>
+        <ul class="placeul">
+        <li><a href="./?Action=Honor">企业荣誉中心列表内容</a></li>
+        <li>内容添加</li>
+        </ul>
+    </div>
+    <div class="formbody">
+    <div id="usual1" class="usual">
+    <div class="itab">
+        <ul>
+            <li><a href="#tab1" class="selected">内容提交</a></li>
+        </ul>
+    </div>
+
+  	<div id="tab1" class="tabson">
+    <form action="./?Action=Honor&Method=AddSave" method="post" enctype="multipart/form-data">
+    <ul class="forminfo">
+
+        <li>
+            <label>标题<b>*</b></label>
+            <input name="Honor_Title" type="text" class="dfinput" style="width:518px;"/>
+        </li>
+
+        <li>
+            <label>上传图片<b>*</b></label>
+            <input name="Honor_PicPath" type="file" class="dfinput" style="width:518px;"/>
+        </li>
+
+        <li>
+            <label>序列<b>*</b></label>
+            <input name="Honor_Sort" type="text" class="dfinput" value="0" style="width:518px;" onkeyup="this.value=this.value.replace(/\D/g,'')"/>
+        </li>
+
+        <li>
+            <label>发布内容<b>*</b></label>
+            <textarea id="EditContent" name="Honor_Content" style="width:700px;height:350px;visibility:hidden;"></textarea>
+        </li>
+
+        <li>
+            <label>状态<b>*</b></label>
+            <label><input type="radio" name="Honor_State" value="1" checked/> 已审核</label>
+            <label><input type="radio" name="Honor_State" value="0"/> 未审核</label>
+        </li>
+        <li><label>&nbsp;</label><input type="submit" class="btn" value="马上发布"/></li>
+        </ul>
+    </form>
+    </div>
+
+    </div>
+	</div>
+ 
+	<script type="text/javascript"> 
+      $("#usual1 ul").idTabs(); 
+    </script>
+    
+    <script type="text/javascript">
+	$('.tablelist tbody tr:odd').addClass('odd');
+	</script>
+
+    </div>
+</body>
+
+</html>

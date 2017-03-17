@@ -1,0 +1,58 @@
+({include file="common/header.html"})
+<!-- common content-banner-->
+<div class="common" id="nei-banner">({$ItemPosterSeat})</div>
+<!-- common content-banner -->
+<!-- About_box -->
+<div id="about_box">
+   <table width="1000" border="0" cellpadding="0" cellspacing="0">
+      <tr>
+         <td align="left" valign="top" id="about_box_left">
+            <dl class="about_dl">
+               <dt>I</dt>
+               <dd class="about_dl_dd1">项目中心</dd>
+               <dd class="about_dl_dd2">ITEM CENTER</dd>
+            </dl>
+            <ul class="about_ul">
+               ({foreach $GetItemTypeList as $value})
+               <li><a href="./?act=item&m=index&typeid=({$value.Type_ID})">({$value['Type_Name']})</a></li>
+               ({/foreach})
+
+            </ul>
+            ({include file="common/left.html"})
+         </td>
+         <td align="left" valign="top" id="about_box_right">
+            <dl id="box_right_tit">
+               <dt>项目中心</dt>
+               <dd>ITEM CENTER</dd>
+            </dl>
+            <div id="about_name"><a href="./">首页</a>  ->  <a href="./?act=item">项目中心</a>({$NavSeat})</div>
+            <div id="NEWS_right_box">
+               ({foreach $ItemList as $value})
+               <dl class="right_box_dl1">
+                  <dt class="NEWS_right_box_dt1">
+                     ({if $value['Item_Type'] eq 1})
+                     <span>[({$value.Item_TypeName})]</span>
+                     ({else})
+                     <a href="./?act=item&typeid=({$value.Item_Type})"><span>[({$value.Item_TypeName})]</span></a>
+                     ({/if})
+                     <a href="./?act=item&m=view&id=({$value.Item_ID})">({$value.Item_Title})</a></dt>
+                  <dt class="NEWS_right_box_dt2">
+                     ({if !empty($value.Item_Time)})
+                     ({$value.Item_Time|date_format:"Y-m-d"})
+                     ({/if})
+                  </dt>
+               </dl>
+               ({foreachelse})
+               ({/foreach})
+               <div id="fenye">
+                  共有:<font color="#22943a"> ({$CountList}) </font>记录  当前:第<font color="#22943a"> ({$p}) </font>/<font color="#22943a"><strong> ({$TotalPageCount}) </strong></font>页
+                  ({$ShowPage})
+               </div>
+            </div>
+         </td>
+      </tr>
+   </table>
+</div>
+</div>
+<!-- header begin -->
+({include file="common/footer.html"})

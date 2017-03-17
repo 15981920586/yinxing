@@ -1,0 +1,58 @@
+({include file="common/header.html"})
+<!-- common content-banner-->
+  <div class="common" id="nei-banner">({$ActivityPosterSeat})</div>
+<!-- common content-banner -->
+<!-- About_box -->
+<div id="about_box">
+<table width="1000" border="0" cellpadding="0" cellspacing="0">
+  <tr>
+    <td align="left" valign="top" id="about_box_left">
+      <dl class="about_dl">
+         <dt>I</dt>
+         <dd class="about_dl_dd1">项目中心</dd>
+         <dd class="about_dl_dd2">ITEM CENTER</dd>
+      </dl>
+      <ul class="about_ul">
+         <li><a href="./?act=about" title="" onFocus="this.blur()" id="on_menu">公司新闻</a></li>
+         <li><a href="./?act=honor" title="" onFocus="this.blur()">企业荣誉</a></li>
+         <li><a href="./?act=about" title="" onFocus="this.blur()">最新公告</a></li>
+      </ul>
+ ({include file="common/left.html"})
+
+    </td>
+    <td align="left" valign="top" id="about_box_right">
+       <dl id="box_right_tit">
+          <dt>项目中心</dt>
+          <dd>ITEM CENTER</dd>
+       </dl>
+       <div id="about_name"><a href="./" >首页</a>  -> <a href="./?act=activity"> 项目中心</a>({$ActivityInfo.Activity_TypeName|default:''})</div>
+
+       <div id="NEWS_right_box">
+           <div id="news_tit">({$ActivityInfo.Activity_Title})</div>
+           <div id="news_tit_info">时间：({$ActivityInfo.Activity_Time|date_format:'Y-m-d H:m:i'})&nbsp;&nbsp;&nbsp;&nbsp;作者：<font color="#22943a">({$ActivityInfo.Activity_Author})</font>&nbsp;&nbsp;&nbsp;&nbsp;来源：({$ActivityInfo.Activity_Source})&nbsp;&nbsp;&nbsp;&nbsp;浏览：({$ActivityInfo.Activity_Hits})次</div>
+        ({$ActivityInfo.Activity_Content})
+        <div id="news_next">
+              <div>上一篇：
+                  ({if empty($UpOneList)})
+                  暂无记录
+                  ({else})
+                  <a href="./?act=activity&m=view&id=({$UpOneList.Activity_ID})" >({$UpOneList.Activity_Title})</a>
+                  ({/if})
+              </div>
+
+              <div>下一篇：
+                  ({if empty($NextOneList)})
+                  暂无记录
+                  ({else})
+                  <a href="./?act=activity&m=view&id=({$NextOneList.Activity_ID})" title="" onFocus="this.blur()">({$NextOneList.Activity_Title})</a></div>
+                  ({/if})
+
+           </div>
+       </div>
+    </td>
+  </tr>
+</table>
+</div>
+</div>
+<!-- header begin -->
+({include file="common/footer.html"})
